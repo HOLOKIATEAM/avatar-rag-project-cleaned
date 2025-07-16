@@ -16,7 +16,7 @@ Ce projet est une application web interactive combinant :
 ## 📁 Structure du projet
 
 ```
-avatar-rag-project/
+avatar-rag-project-cleaned/
 ├── BackEnd/                # API FastAPI + TTS + STT
 │   ├── main.py             # Route principale pour la génération IA
 │   ├── tts_server.py       # Service de synthèse vocale
