@@ -1,0 +1,24 @@
+# Dockerfile.tts
+
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Installer ffmpeg/ffprobe
+RUN apt-get update && \
+    apt-get install -y ffmpeg && \
+    apt-get clean
+
+COPY requirements.txt ./
+
+RUN pip install --upgrade pip --disable-pip-version-check && \
+    pip install --no-cache-dir --timeout=120 --retries=10 --progress-bar=off \
+    --no-deps --trusted-host pypi.org --trusted-host files.pythonhosted.org \
+    -r requirements.txt
+
+
+COPY . .
+
+EXPOSE 5000
+
+CMD ["uvicorn", "tts_server:app", "--host", "0.0.0.0", "--port", "5000"]

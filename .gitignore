@@ -1,0 +1,36 @@
+# Environnement Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+.venv/
+venv/
+
+# Environnement Node.js
+node_modules/
+dist/
+.build/
+
+# Audios générés
+*.wav
+*.json
+BackEnd/audios/
+front-end/public/audios/
+
+# Fichiers sensibles
+.env
+*.env
+
+# Fichiers temporaires
+*.log
+.DS_Store
+
+# Docker
+*.pid
+*.sock
+
+# IDE / éditeurs
+.vscode/
+.idea/

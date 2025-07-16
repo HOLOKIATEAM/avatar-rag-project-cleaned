@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./BackEnd
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5001"
+    environment:
+      - GROQ_API_KEY=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
+    volumes:
+      - shared-audio:/app/front-end/public/audios
+
+  tts:
+    build:
+      context: ./BackEnd
+      dockerfile: Dockerfile.tts
+    ports:
+      - "5000:5000"
+    volumes:
+      - shared-audio:/audios
+      - ./BackEnd/rhubarb.exe:/app/rhubarb.exe
+
+  stt:
+    build:
+      context: ./BackEnd
+      dockerfile: Dockerfile.stt
+    ports:
+      - "5002:5002"
+
+  frontend:
+    build:
+      context: ./front-end
+      dockerfile: Dockerfile
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+      - tts
+      - stt
+    volumes:
+      - shared-audio:/usr/share/nginx/html/audios  # 👈 Ajouté ici
+
+volumes:
+  shared-audio: {}
