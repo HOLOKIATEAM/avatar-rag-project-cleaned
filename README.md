@@ -51,8 +51,8 @@ avatar-rag-project/
 ### 1. Cloner le dépôt
 
 ```bash
-git clone https://github.com/HOLOKIATEAM/avatar-rag-project.git
-cd avatar-rag-project
+git clone https://github.com/HOLOKIATEAM/avatar-rag-project-cleaned.git
+cd avatar-rag-project-cleaned
 ```
 
 ### 2. Ajouter le fichier `.env` dans le dossier `BackEnd/`
